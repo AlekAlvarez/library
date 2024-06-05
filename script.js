@@ -16,7 +16,6 @@ isRead.addEventListener("click",()=>{
     else{
         isRead.value='unread';
     }
-    console.log(isRead.value);
 })
 submit.addEventListener("click",()=>{
     container.removeChild(form);
@@ -24,7 +23,7 @@ submit.addEventListener("click",()=>{
     author.value="";
     title.value="";
     pageNumbers.value="";
-    isRead.value="";
+    isRead.value="unread";
     isRead.checked=false;
 })
 container.removeChild(form);
@@ -44,22 +43,45 @@ function Book(author,title,pageNumbers,isRead,index){
 function addBookToLibrary(author,title,pageNumbers,isRead){
     let book=new Book(author,title,pageNumbers,isRead,myLibrary.length);
     let row=document.createElement("tr");
+    row.id="row"+myLibrary.length;
     let b=document.createElement("td");
-    b.innerText=myLibrary.length+1;
+    b.innerText=book.index+1;
     row.appendChild(b);
     let a=document.createElement("td");
-    a.innerText=author;
+    a.innerText=book.author;
     row.appendChild(a);
     let t=document.createElement("td");
-    t.innerText=title;
+    t.innerText=book.title;
     row.appendChild(t);
     let n=document.createElement("td");
-    n.innerText=pageNumbers;
+    n.innerText=book.pageNumbers;
     row.appendChild(n);
     let r=document.createElement("td");
-    r.innerText=isRead;
+    r.innerText=book.isRead;
+    r.class="isRead";
     row.appendChild(r);
     let tog=document.createElement("td");
+    let tButton=document.createElement("button");
+    tog.appendChild(tButton);
+    tButton.innerText="Toggle";
+    tButton.value=myLibrary.length;
+    tButton.addEventListener("click",()=>{
+        let temp=document.querySelector('#row'+tButton.value);
+        if(myLibrary[tButton.value].isRead=='read'){
+            myLibrary[tButton.value].isRead='unread';
+        }
+        else{
+            myLibrary[tButton.value].isRead='read';
+        }
+        let arr=temp.childNodes;
+        for(let i=0;i<arr.length;i++){
+            if(arr[i].class=='isRead'){
+                arr[i].innerText=myLibrary[tButton.value].isRead;
+                break;
+            }
+        }
+    });
+    tButton.setAttribute("class","toggle");
     row.appendChild(tog);
     let rem=document.createElement("td");
     row.appendChild(rem);

@@ -44,7 +44,7 @@ button{
     background-color: rgb(213, 208, 208);
     border-style: none;
 }
-#add-book:hover, #Submit:hover{
+#add-book:hover, #Submit:hover, .toggle:hover{
     background-color: rgba(97, 95, 95, 0.666);
 }
 #container{
