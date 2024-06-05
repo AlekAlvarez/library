@@ -1,0 +1,16 @@
+#form{
+    display:flex;
+    flex-direction: column;
+    width:75vw;
+    height:25vh;
+    margin-left:12.5vw;
+    margin-right:12.5vw;
+    gap:5vh;
+    padding-top:5vh;
+    padding-bottom: 5vh;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    gap:5vh;
+}

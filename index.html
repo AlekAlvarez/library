@@ -8,6 +8,25 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
+        <button id="add-book">+ Add Book</button>
+        <form id="form">
+            <div class="row">
+                <label for="author">Author:</label>
+                <input name="author" type="text">
+            </div>
+            <div class="row">
+                <label for="title">Title:</label>
+                <input name="title" type="text">
+            </div>
+            <div class="row">
+                <label for="pageNumbers">Page Number:</label>
+                <input name="pageNumbers" type="number">
+            </div>
+            <div class="row">
+                <label for="isRead">Did you Read this?</label>
+                <input name="isRead" type="checkbox">
+            </div>
+        </form>
     </body>
 </html>

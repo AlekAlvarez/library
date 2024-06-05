@@ -1,4 +1,16 @@
 const myLibrary=[];
+const addButton=document.querySelector("#add-book");
+const body=document.querySelector("body");
+addButton.addEventListener("click",()=>{
+    if(document.querySelector("body #book-form")==null){
+        let form=document.createElement("form");
+        let author=document.createElement("label");
+        form.setAttribute("id","book-form");
+        author.innerText=author;
+        form.appendChild(author);
+        body.appendChild(form);
+    }
+});
 function Book(author,title,pageNumbers,isRead,index){
     this.author=author;
     this.title=title;
