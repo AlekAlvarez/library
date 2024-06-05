@@ -44,9 +44,6 @@ function addBookToLibrary(author,title,pageNumbers,isRead){
     let book=new Book(author,title,pageNumbers,isRead,myLibrary.length);
     let row=document.createElement("tr");
     row.id="row"+myLibrary.length;
-    let b=document.createElement("td");
-    b.innerText=book.index+1;
-    row.appendChild(b);
     let a=document.createElement("td");
     a.innerText=book.author;
     row.appendChild(a);
@@ -84,6 +81,20 @@ function addBookToLibrary(author,title,pageNumbers,isRead){
     tButton.setAttribute("class","toggle");
     row.appendChild(tog);
     let rem=document.createElement("td");
+    let rButton=document.createElement("button");
+    rButton.value=myLibrary.length;
+    rButton.innerText="Remove";
+    rButton.setAttribute("class","remove");
+    rem.appendChild(rButton);
+    rButton.addEventListener("click",()=>{
+        let index=rButton.value;
+        table.removeChild(document.querySelector("#row"+index));
+        let arr=table.childNodes;
+        for(let i=index+1;i<arr.length;i++){
+            arr[i].setAttribute("id","#row"+i);
+            arr[i].childNodes[1].innerText=i;
+        }
+    });
     row.appendChild(rem);
     table.appendChild(row);
     myLibrary.push(book);
