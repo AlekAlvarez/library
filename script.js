@@ -1,15 +1,11 @@
 const myLibrary=[];
 const addButton=document.querySelector("#add-book");
 const body=document.querySelector("body");
+const container=document.querySelector("#container");
+const form=document.querySelector("#form");
+container.removeChild(form);
 addButton.addEventListener("click",()=>{
-    if(document.querySelector("body #book-form")==null){
-        let form=document.createElement("form");
-        let author=document.createElement("label");
-        form.setAttribute("id","book-form");
-        author.innerText=author;
-        form.appendChild(author);
-        body.appendChild(form);
-    }
+    container.appendChild(form);
 });
 function Book(author,title,pageNumbers,isRead,index){
     this.author=author;
